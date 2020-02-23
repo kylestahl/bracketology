@@ -203,10 +203,10 @@ class Bracket():
         self.regions = bracket.get('Region')        
         
         # Get Team Lists
-        east_teams = []; add_east = east_teams.append
-        west_teams = []; add_west = west_teams.append
+        east_teams = [];    add_east = east_teams.append
+        west_teams = [];    add_west = west_teams.append
         midwest_teams = []; add_midwest = midwest_teams.append
-        south_teams = []; add_south = south_teams.append
+        south_teams = [];   add_south = south_teams.append
 
         for team in self.regions['East']: add_east(Team(name=team['Team'], seed=team['Seed']))
         for team in self.regions['West']: add_west(Team(name=team['Team'], seed=team['Seed']))
