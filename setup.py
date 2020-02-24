@@ -1,7 +1,8 @@
 from distutils.core import setup
 setup(
   name = 'bracketology',         
-  packages = ['bracketology'],   
+  packages = ['bracketology'],
+  package_data={'bracketology': ['data/*.json']},
   version = '0.0.1-alpha',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
