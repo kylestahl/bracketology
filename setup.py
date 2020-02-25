@@ -3,14 +3,14 @@ setup(
   name = 'bracketology',         
   packages = ['bracketology'],
   package_data={'bracketology': ['data/*']},
-  version = '0.0.2-alpha',     
+  version = '0.0.4',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
   author = 'Kyle Stahl',                   
   author_email = 'stahl085@umn.edu',      
   url = 'https://github.com/stahl085/bracketology',   
-  download_url = 'https://github.com/stahl085/bracketology/archive/0.0.1-alpha.tar.gz',    # I explain this later on
-  keywords = ['brackets', 'NCAA', 'basketball', 'march', 'madness', 'tournament'],   # Keywords that define your package best
+  download_url = 'https://github.com/stahl085/bracketology/archive/0.0.4.tar.gz', 
+  keywords = ['brackets', 'NCAA', 'basketball', 'march', 'madness', 'tournament'],
   install_requires=[],
   classifiers=[
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
