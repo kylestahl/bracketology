@@ -1,8 +1,9 @@
 from distutils.core import setup
 setup(
   name = 'bracketology',         
-  packages = ['bracketology'],   
-  version = '0.0.1-alpha',     
+  packages = ['bracketology'],
+  package_data={'bracketology': ['data/*']},
+  version = '0.0.2-alpha',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
   author = 'Kyle Stahl',                   
