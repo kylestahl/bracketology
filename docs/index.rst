@@ -1,8 +1,3 @@
-.. bracketology documentation master file, created by
-   sphinx-quickstart on Mon Feb 24 18:33:41 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to bracketology's documentation!
 ========================================
 
@@ -10,6 +5,24 @@ Welcome to bracketology's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+
+Installation
+------------
+
+    pip install bracketology
+    
+Hello Brackets
+--------------
+
+    from bracketology import Bracket
+    
+    year = 2019
+    b = Bracket(2019)
+    
+Usage
+-----
+
+The main part of this package is the `Bracket` object.
 
 
 Indices and tables
