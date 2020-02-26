@@ -14,7 +14,7 @@ Get the package from [PyPi](https://pypi.org/project/bracketology/#):
 pip install bracketology
 ```
 
-## Usage (Hello Bracket!)
+## Usage: Hello Bracket!
 Create a Bracket object
 ```
 from bracketology import Bracket, Game, Team
