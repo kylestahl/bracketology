@@ -38,17 +38,17 @@ b19.score(upset_prob(0.15))
 
 ## Table of Contents
 
-#### _bracketology_
+#### _/bracketology_
 This is for the actual package files; what gets uploaded to PyPi 
 and downloaded when you `pip install bracketology`.
 
-#### _docs_
+#### _/docs_
 This folder contains the files to create the Read The Docs documentation.
 The structure was automatically generated with [Sphinx-quickstart](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html)    
 
 The file `index.rst` contains the main info for the documentation.
 
-#### _notebooks_
+#### _/notebooks_
 Some Jupyter notebooks for the original data cleaning, exploratory analysis,
 and (eventually) some baseline modeling. 
 
