@@ -15,25 +15,44 @@ pip install bracketology
 ```
 
 ## Usage (Hello Bracket!)
+Create a Bracket object
+```
+from bracketology import Bracket, Game, Team
+b19 = Bracket(2019)
+```
 
+Check out the teams that made it that year
+```
+b19.regions
+# or
+b19.round1
+# or
+b19.result.get('first')
+```
+
+Simulate a result
+```
+from bracketology.simulators import upset_prob
+b19.score(upset_prob(0.15))
+```
 
 ## Table of Contents
 
-#### bracketology
+#### _bracketology_
 This is for the actual package files; what gets uploaded to PyPi 
 and downloaded when you `pip install bracketology`.
 
-#### docs
+#### _docs_
 This folder contains the files to create the Read The Docs documentation.
 The structure was automatically generated with [Sphinx-quickstart](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html)    
 
 The file `index.rst` contains the main info for the documentation.
 
-#### notebooks
+#### _notebooks)
 Some Jupyter notebooks for the original data cleaning, exploratory analysis,
 and (eventually) some baseline modeling. 
 
-#### setup.py, setup.cfg, and MANIFEST
+#### _setup.py, setup.cfg, and MANIFEST_
 These are used for uploading the package to PyPi.
 
 

@@ -1,5 +1,7 @@
 import json
-with open('bracketology/data/brackets.json', 'r') as f:
+from pkg_resources import resource_filename
+filepath = resource_filename('bracketology', 'data/brackets.json')
+with open(filepath, 'r') as f:
     brackets_dict = json.load(f)
 
 class Team():
