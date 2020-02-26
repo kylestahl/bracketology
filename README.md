@@ -48,7 +48,7 @@ The structure was automatically generated with [Sphinx-quickstart](https://docs.
 
 The file `index.rst` contains the main info for the documentation.
 
-#### _notebooks)
+#### _notebooks_
 Some Jupyter notebooks for the original data cleaning, exploratory analysis,
 and (eventually) some baseline modeling. 
 
