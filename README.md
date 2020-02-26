@@ -57,22 +57,28 @@ These are used for uploading the package to PyPi.
 
 
 ## Contributing
-This project is still in it's nascent stages, there is plenty of room to contribute! 
-Feel free to branch or fork this repo and PR for contributing or for personal use.
+This project is still in it's nascent stages. There is plenty of room to contribute! 
+Feel free to branch or fork this repo and PR for contributing, or just have it for personal use.
 
-At the moment, there is not strict coding standards. I would just expect it to 
-be clean enough to understand.
+At the moment, there is not strict coding standards. But any PR's should be
+comprehensible and have comments where neccessary.
 
 If you are passionate about this topic and have large scale feature ideas, 
-or ideas on how to better achieve the goals of this package, feel free to reach out! 
+or any ideas on how to better achieve the goals of this package, feel free to reach out! 
 I would love to work with you to make this better for everyone.     
 
 Maybe one day we will get a perfect bracket.
 
-Message me on [LinkedIn](https://www.linkedin.com/in/kyle-stahl-mn/)
+Message me on [LinkedIn](https://www.linkedin.com/in/kyle-stahl-mn/)     
 or Email: stahl085@umn.edu
 
 ## Future Developement
+Big ticket feature in progress
+ - adding regular season data for each team each year
+ - more robust error handling
+ - adding more simulator functions to go with each package
+ - TBD
+
 
 
 
