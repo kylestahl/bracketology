@@ -3,7 +3,7 @@ setup(
   name = 'bracketology',         
   packages = ['bracketology'],
   package_data={'bracketology': ['data/*']},
-  version = '0.0.4',     
+  version = '0.0.6',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
   author = 'Kyle Stahl',                   
@@ -13,7 +13,7 @@ setup(
   keywords = ['brackets', 'NCAA', 'basketball', 'march', 'madness', 'tournament'],
   install_requires=[],
   classifiers=[
-    'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+    'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" 
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: MIT License',   
