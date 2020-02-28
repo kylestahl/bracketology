@@ -10,9 +10,9 @@ class Team():
     
     Attributes
     ----------
-    name : (str)
+    name : str
         Name of the school (or abbreviation)
-    seed : (int)
+    seed : int
         Seed of the team in the tournament (1-16)
     stats : (dict)
         A dictionary with other information about the team, like season stats
@@ -32,11 +32,11 @@ class Game():
     
     Attributes
     ----------
-    top_team : (Team)
+    top_team : Team
         The "top team" in the game refers to bracket position, not seed
-    bottom_team : (Team)
+    bottom_team : Team
         The "bottom team" in the game refers to bracket position, not seed
-    round_number : (int)
+    round_number : int
         Which round of the tournament is it (1-6)
     """
     def __init__(self, top_team, bottom_team, round_number):
@@ -216,7 +216,7 @@ class Bracket():
     
     Attributes
     ----------
-    year : (int)
+    year : int
         Calendar year of the tournament (1985-2019)
     result : (dict)
         The actual tournament results for that year
@@ -234,11 +234,11 @@ class Bracket():
         Final Four and Championship games
     round1, round2, ... , round6 : (list of Teams)
         Which teams are simulated to make it to each round
-    winner : (Team)
+    winner : Team
         Simulated tournament winner
-    n_games_correct (int)
+    n_games_correct int
         Number of games the simulation got correct
-    total_score (int)
+    total_score int
         Total points earned by the simulator function (32 points per round)
     """
     def __repr__(self): 
@@ -246,6 +246,12 @@ class Bracket():
         return f"{header}{self.Finals}{self.East}{self.West}{self.Midwest}{self.South}"
     
     def __init__(self, year):
+        """
+        Parameters
+        ----------
+        year : int
+            Year of the NCAA tournament
+        """
         valid_years = [y for y in range(1985, 2019+1)]
         if year not in valid_years:
             raise ValueError("Year must be between 1985 and 2019")

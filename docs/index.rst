@@ -5,13 +5,20 @@ Welcome to bracketology's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+The goal of bracketology is to speed up the analysis of NCAA march madness data 
+and help develop algorithms for filling out brackets.  
+
+:Documentation: https://bracketology.readthedocs.io/en/latest/
+:GitHub Repo: https://github.com/stahl085/bracketology
+:Issue Tracker: https://github.com/stahl085/bracketology/issues
+:Backlog: https://github.com/stahl085/bracketology/projects/1?fullscreen=true
+:PyPI: https://pypi.org/project/bracketology/
+
 Before You Start
-----------------
-This package is aimed to help speed up the analysis of NCAA march madness data
-and developing algorithms for filling out brackets.    
+----------------  
 
 Here are the main things you need to know:
- - The main parts of this package are the :code:`Bracket` objects and simulator functions in the simulators module
+ - The main parts of this package are the :code:`Bracket` objects and simulator functions in the :code:`simulators` module
  - A Bracket is composed of :code:`Team` and :code:`Game` objects
  - Game objects have two Team objects as attributes, and the round number
  - Teams have a name, seed, and dictionary for statistics
@@ -20,7 +27,8 @@ Here are the main things you need to know:
    
 Installation
 ------------
-Install from `pip <https://pip.pypa.io/en/stable/>`
+
+Install from `pip <https://pip.pypa.io/en/stable/>`_
 
 .. code-block:: bash
 
@@ -40,12 +48,13 @@ Import bracketology and create a bracket from last year.
     year = 2019
     b19 = Bracket(year)
     
-Usage
-=====
+Tutorial
+========
 
 Inspecting the Bracket Object
 -----------------------------
 This is how you can look at your brackets
+
 .. code-block:: python
 
     b19.regions
@@ -79,8 +88,13 @@ Here we can evaluate two different simulators
     
     # TBD
 
+Bracketology Objects
+====================
 
-
+.. autoclass:: bracketology.Bracket
+    :members:
+    
+    .. automethod:: __init__
 
 
 
