@@ -217,7 +217,7 @@ class Bracket():
     Attributes
     ----------
     year : 
-        (int) Calendar year of the tournament (1985-2019)
+        **(int)** Calendar year of the tournament (1985-2019)
     result : (dict)
         The actual tournament results for that year
     regions : (dict)
@@ -378,6 +378,9 @@ class Bracket():
         self.winner = self.Finals.winner
         
     def sim(self, sim_func):
+        """
+        Simulate the entire bracket
+        """
         self.run_first_round(sim_func)
         self.run_second_round(sim_func)
         self.run_sweet_sixteen(sim_func)
@@ -386,6 +389,9 @@ class Bracket():
         self.run_championship(sim_func)
 
     def score(self, sim_func=None, verbose=True):
+        """
+        Calculate score for bracket
+        """
         if sim_func is None:
             if self.winner is None:
                 raise Exception("Need to run simulation before scoring")

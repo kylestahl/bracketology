@@ -2,7 +2,7 @@ Welcome to bracketology's documentation!
 ========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
 The goal of bracketology is to speed up the analysis of NCAA march madness data 
@@ -93,9 +93,7 @@ Bracketology Objects
 
 .. autoclass:: bracketology.Bracket
     :members:
-    
-    .. automethod:: __init__
 
-
-
+.. autoclass:: bracketology.SubBracket16
+    :members:
 

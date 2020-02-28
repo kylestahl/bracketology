@@ -30,7 +30,18 @@ version = release
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'numpydoc']#'sphinxcontrib.napoleon'] # Should convert numpy or google style docstrings
+#extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'numpydoc'] # Should convert numpy or google style docstrings
+extensions = ['sphinx.ext.autodoc', 'sphinxcontrib.napoleon'] # Should convert numpy or google style docstrings
+
+autodoc_default_options = {
+    'member-order': 'bysource',
+    'special-members': '__init__,score,sim',
+    'undoc-members': False,
+    'exclude-members': '__repr__,run_first_round,run_second_round,run_sweet_sixteen,run_elite_eight,run_final_four,run_championship'
+}
+
+
+
 
 # Point to the master.rst
 master_doc = 'index'
