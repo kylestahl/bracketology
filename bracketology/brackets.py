@@ -5,6 +5,18 @@ with open(filepath, 'r') as f:
     brackets_dict = json.load(f)
 
 class Team():
+    """
+    A team that is in a Game or a Bracket
+    
+    Attributes
+    ----------
+    name : (str)
+        Name of the school (or abbreviation)
+    seed : (int)
+        Seed of the team in the tournament (1-16)
+    stats : (dict)
+        A dictionary with other information about the team, like season stats
+    """
     def __init__(self, name, seed):
         if type(name) != str: raise TypeError("name needs to be of type str")
         if type(seed) != int: raise TypeError("seed needs to be of type int")
@@ -15,6 +27,18 @@ class Team():
         return f"<{self.seed} {self.name}>"
 
 class Game():
+    """
+    A game between two teams in the bracket
+    
+    Attributes
+    ----------
+    top_team : (Team)
+        The "top team" in the game refers to bracket position, not seed
+    bottom_team : (Team)
+        The "bottom team" in the game refers to bracket position, not seed
+    round_number : (int)
+        Which round of the tournament is it (1-6)
+    """
     def __init__(self, top_team, bottom_team, round_number):
         #if not isinstance(top_team, Team): raise TypeError("top_team must be Type Team")
         #if not isinstance(bottom_team, Team): raise TypeError("bottom_team must be Type Team")
@@ -106,7 +130,7 @@ class SubBracket16():
         # Verify first round has completed
         if not self.round3: raise Exception("Need to complete second round before third")
         
-        self.Game15 = Game(sim_func(self.Game13), sim_func(self.Game14), 3)
+        self.Game15 = Game(sim_func(self.Game13), sim_func(self.Game14), 4)
         
         self.round4 = [self.Game15]
         
@@ -169,15 +193,15 @@ class FinalFour():
         game1 = self.final_matches.get('game1')
         game2 = self.final_matches.get('game2')
 
-        self.Game1 = Game(teams[game1['team1']], teams[game1['team2']], 4)
-        self.Game2 = Game(teams[game2['team1']], teams[game2['team2']], 4)
+        self.Game1 = Game(teams[game1['team1']], teams[game1['team2']], 5)
+        self.Game2 = Game(teams[game2['team1']], teams[game2['team2']], 5)
         
     def run_final_four(self, sim_func):
         
         if self.Game1 is None or self.Game2 is None:
             raise Exception("Need to initialize teams before running games")
         
-        self.Championship = Game(sim_func(self.Game1), sim_func(self.Game2), 5)
+        self.Championship = Game(sim_func(self.Game1), sim_func(self.Game2), 6)
         
     def run_championship(self, sim_func):
         
@@ -187,6 +211,36 @@ class FinalFour():
         self.winner = sim_func(self.Championship)
 
 class Bracket():
+    """
+    A NCAA tournament for a specific year
+    
+    Attributes
+    ----------
+    year : (int)
+        Calendar year of the tournament (1985-2019)
+    result : (dict)
+        The actual tournament results for that year
+    regions : (dict)
+        The teams that year broken down by region
+    East : (SubBracket16)
+        SubBracket for East
+    West : (SubBracket16)
+        SubBracket for West
+    Midwest : (SubBracket16)
+        SubBracket for Midwest
+    South : (SubBracket16)
+        SubBracket for South
+    Finals : (FinalFour)
+        Final Four and Championship games
+    round1, round2, ... , round6 : (list of Teams)
+        Which teams are simulated to make it to each round
+    winner : (Team)
+        Simulated tournament winner
+    n_games_correct (int)
+        Number of games the simulation got correct
+    total_score (int)
+        Total points earned by the simulator function (32 points per round)
+    """
     def __repr__(self): 
         header = f"Bracket for year {self.year}"
         return f"{header}{self.Finals}{self.East}{self.West}{self.Midwest}{self.South}"

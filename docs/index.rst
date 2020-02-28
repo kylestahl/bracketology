@@ -11,8 +11,8 @@ This package is aimed to help speed up the analysis of NCAA march madness data
 and developing algorithms for filling out brackets.    
 
 Here are the main things you need to know:
- - The main parts of this package are the `Bracket` objects and simulator functions in the simulators module
- - A Bracket is composed of `Team` and `Game` objects
+ - The main parts of this package are the :code:`Bracket` objects and simulator functions in the simulators module
+ - A Bracket is composed of :code:`Team` and :code:`Game` objects
  - Game objects have two Team objects as attributes, and the round number
  - Teams have a name, seed, and dictionary for statistics
  - Simulator functions have 1 argument of type Game, and return the winning Team of that Game
@@ -20,15 +20,18 @@ Here are the main things you need to know:
    
 Installation
 ------------
-Install from `PyPi <https://pypi.org/project/bracketology/>`_
+Install from `pip <https://pip.pypa.io/en/stable/>`
 
 .. code-block:: bash
 
     pip install bracketology
 
- 
+Or download directly from `PyPi <https://pypi.org/project/bracketology/>`_
+
 Getting Started
---------------
+---------------
+Import bracketology and create a bracket from last year.
+
 .. code-block:: python
 
     from bracketology import Bracket, Game, Team
@@ -38,14 +41,47 @@ Getting Started
     b19 = Bracket(year)
     
 Usage
------
+=====
 
-The main part of this package is the `Bracket` object.
+Inspecting the Bracket Object
+-----------------------------
+This is how you can look at your brackets
+.. code-block:: python
+
+    b19.regions
+    # or
+    b19.round1
+    # or
+    b19.result.get('first')
+
+Creating a Simulator Algorithm
+-------------------------------
+A simulator needs to take in a Game and Return a Team
+
+.. code-block:: python
+
+    team1 = Team(name='Blue Mountain State',seed=1)
+    team2 = Team(name='School of Hard Knocks',seed=2)
+    
+    game1 = Game(team1, team2, round=1)
+
+.. code-block:: python
+
+    def pick_a_random_team(Game):
+        return Team
+
+Evaluting Simulator Results
+---------------------------
+
+Here we can evaluate two different simulators
+
+.. code-block:: python
+    
+    # TBD
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+
+
+
