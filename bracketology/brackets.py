@@ -216,8 +216,8 @@ class Bracket():
     
     Attributes
     ----------
-    year : int
-        Calendar year of the tournament (1985-2019)
+    year : 
+        (int) Calendar year of the tournament (1985-2019)
     result : (dict)
         The actual tournament results for that year
     regions : (dict)
