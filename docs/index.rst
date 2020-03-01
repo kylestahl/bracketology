@@ -1,6 +1,10 @@
 Welcome to bracketology's documentation!
 ========================================
-
+.. image:: _static/bracketology_logo.png
+   :width: 80%
+   :align: center
+   :alt: Bracketology logo
+   
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
