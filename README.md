@@ -3,7 +3,7 @@ The bracketology package is aimed at creating an easy to use interface for
 analyzing historical NCAA mens basketball tournament data & accelerating the
 process of creating and evaluting bracket prediction algorithms.
 
-[Logo](docs/_static/bracketology_logo.png)
+![Logo](docs/_static/bracketology_logo.png)
 
 ## Documentation
 
