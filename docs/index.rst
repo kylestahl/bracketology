@@ -1,15 +1,15 @@
 Welcome to bracketology's documentation!
 ========================================
 
-.. image:: docs/_static/bracketology_logo.png
-   :width: 100%
-   :align: center
-   :alt: Bracketology logo
-   
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
 
+.. image:: _static/bracketology_logo.png
+   :width: 100%
+   :align: center
+   :alt: Bracketology logo
+   
 The goal of bracketology is to speed up the analysis of NCAA march madness data 
 and help develop algorithms for filling out brackets.  
 
