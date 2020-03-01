@@ -1,8 +1,8 @@
 Welcome to bracketology's documentation!
 ========================================
 
-.. image:: _static/bracketology_logo.png
-   :width: 80%
+.. image:: docs/_static/bracketology_logo.png
+   :width: 100%
    :align: center
    :alt: Bracketology logo
    

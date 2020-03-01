@@ -1,4 +1,4 @@
-# bracketology
+
 ![Logo](docs/_static/bracketology_logo.png)
 
 The bracketology package is aimed at creating an easy to use interface for 
