@@ -5,7 +5,7 @@ Welcome to bracketology's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-.. image:: _static/bracketology_logo.png
+.. figure:: _static/bracketology_logo.png
    :width: 100%
    :align: center
    :alt: Bracketology logo
