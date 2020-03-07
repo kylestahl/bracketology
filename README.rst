@@ -56,16 +56,64 @@ Tutorial
 
 Inspecting the Bracket Object
 -----------------------------
-This is how you can look at your brackets
+Here are three different ways you can inspect the Bracket.    
+
+Print out all the teams in each region. The `regions` attribute is
+a dictionary with the information of all the teams in each region.
 
 .. code-block:: python
 
-    b19.regions
-    # or
-    b19.round1
-    # or
-    b19.result.get('first')
+    >>> print(b19.regions)
+    {
+        'East': [{'Team': 'Duke', 'Seed': 1}, 
+                 {'Team': 'Michigan St', 'Seed': 2}, 
+                 {'Team': 'LSU', 'Seed': 3}, 
+                 ...],
+        'West': [{'Team': 'Gonzaga', 'Seed': 1}, 
+                 {'Team': 'Michigan', 'Seed': 2}, 
+                 {'Team': 'Texas Tech', 'Seed': 3},
+                 ...],
+        'Midwest': [{'Team': 'North Carolina', 'Seed': 1}, 
+                    {'Team': 'Kentucky', 'Seed': 2}, 
+                    {'Team': 'Houston', 'Seed': 3},
+                    ...],
+        'South': [{'Team': 'Virginia', 'Seed': 1}, 
+                  {'Team': 'Tennessee', 'Seed': 2}, 
+                  {'Team': 'Purdue', 'Seed': 3},
+                  ...]
+    }
 
+
+Print out all the teams that are simulated to make it to each round.
+The first round is filled out by default. This is a list of `Team` objects
+that are simulated to make it to each round. Right now `round2` is an empty list
+because we have not simulated the bracket yet.
+
+.. code-block:: python
+    
+    >>> print(b19.round1)
+    [<1 Duke>, <2 Michigan St>, <3 LSU>, ... , <1 Gonzaga>, <2 Michigan>, <3 Texas Tech>, 
+     ... , <1 North Carolina>, <2 Kentucky>, <3 Houston>, ... , <1 Virginia>, <2 Tennessee>, <3 Purdue>]
+        
+    >>> print(b19.round2)
+    []
+
+The `result` attribute will return a dictionary (similar to `regions` above)
+but will be broken out by which teams actually made it to each round. You can 
+use it to inspect the real tournament results.
+
+.. code-block:: python
+
+    >>> print(b19.result.keys())
+    dict_keys(['first', 'second', 'sweet16', 'elite8', 'final4', 'championship', 'winner'])
+    
+    >>> print(b19.result['final4'])
+    [{'Team': 'Michigan St', 'Seed': 2}, {'Team': 'Virginia', 'Seed': 1}, 
+     {'Team': 'Texas Tech', 'Seed': 3}, {'Team': 'Auburn', 'Seed': 5}]
+    
+    >>> print(b19.result.get('winner'))
+    {'Team': 'Virginia', 'Seed': 1}    
+        
 Creating a Simulator Algorithm
 -------------------------------
 A simulator needs to take in a Game and Return a Team
