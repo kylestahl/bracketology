@@ -157,7 +157,6 @@ A simulator needs to take in a Game and Return a Team
         # Return the lucky team
         return winner
 ​
-
 .. code-block:: python
 
     >>> pick_a_random_team(game1)
@@ -195,7 +194,7 @@ A simulator needs to take in a Game and Return a Team
   
 Output:
  
- Blue Mountain State Win Percentage:   %50.9
+ Blue Mountain State Win Percentage:   %50.9     
  School of Hard Knocks Win Percentage: %49.1
 
 
