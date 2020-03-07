@@ -6,7 +6,7 @@ Welcome to Bracketology!
    :align: center
    :alt: Bracketology logo
    
-:doc:docs/startup.rst
+:doc:`docs/startup.rst`
 
 
 
