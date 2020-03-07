@@ -1,11 +1,7 @@
 Welcome to Bracketology!
 ========================
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents:
-
-.. figure:: _static/bracketology_logo.png
+.. figure:: docs/_static/bracketology_logo.png
    :width: 100%
    :align: center
    :alt: Bracketology logo
@@ -93,32 +89,6 @@ Here we can evaluate two different simulators
     
     # TBD
 
-Reference
-=========
 
-Bracket Objects
----------------
 
-.. autoclass:: bracketology.Bracket
-    :members:
 
-.. autoclass:: bracketology.SubBracket16
-    :members:
-
-.. autoclass:: bracketology.FinalFour
-    :members:
-
-.. autoclass:: bracketology.Game
-    :members:
-
-.. autoclass:: bracketology.Team
-    :members:
-
-Simulators
-----------
-   
-.. autoclass:: bracketology.simulators
-    :members:
-    
-.. autoclass:: bracketology.simulators.upset_prob
-    :members:
