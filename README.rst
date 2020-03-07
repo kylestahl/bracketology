@@ -58,9 +58,9 @@ Inspecting the Bracket Object
 -----------------------------
 Here are three different ways you can inspect the Bracket.    
 
- * Inspect teams in each region (dictionary of actual results)
- * Inspect actual results by round (dictionary)
- * Inspect simulated results by round (list of Team attributes)
+* Inspect teams in each region (dictionary of actual results)
+* Inspect actual results by round (dictionary)
+* Inspect simulated results by round (list of Team attributes)
 
 Get Teams in each Region
 ~~~~~~~~~~~~~~~~~~~~~~~~
