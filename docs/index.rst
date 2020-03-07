@@ -93,8 +93,11 @@ Here we can evaluate two different simulators
     
     # TBD
 
-Bracketology Objects
-====================
+Reference
+=========
+
+Bracket Objects
+---------------
 
 .. autoclass:: bracketology.Bracket
     :members:
@@ -102,3 +105,17 @@ Bracketology Objects
 .. autoclass:: bracketology.SubBracket16
     :members:
 
+.. autoclass:: bracketology.FinalFour
+    :members:
+
+.. autoclass:: bracketology.Game
+    :members:
+
+Simulators
+----------
+
+.. autoclass:: bracketology.Team
+    :members:
+    
+.. autoclass:: bracketology.simulators
+    :members:

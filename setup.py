@@ -6,6 +6,7 @@ setup(
   version = '0.0.6',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
+  long_description=open('README.md').read(),
   author = 'Kyle Stahl',                   
   author_email = 'stahl085@umn.edu',      
   url = 'https://github.com/stahl085/bracketology',   
