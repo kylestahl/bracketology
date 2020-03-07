@@ -1,3 +1,3 @@
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 from bracketology.brackets import Team, Game, SubBracket16, FinalFour, Bracket
 import bracketology.simulators
