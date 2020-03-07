@@ -3,7 +3,7 @@ setup(
   name = 'bracketology',         
   packages = ['bracketology'],
   package_data={'bracketology': ['data/*']},
-  version = '0.0.7',     
+  version = '0.0.8',     
   license='MIT',        
   description = 'Analyze and simulate NCAA march madness tournaments',
   long_description=open('README.md').read(),
