@@ -58,6 +58,13 @@ Inspecting the Bracket Object
 -----------------------------
 Here are three different ways you can inspect the Bracket.    
 
+ * Inspect teams in each region (dictionary of actual results)
+ * Inspect actual results by round (dictionary)
+ * Inspect simulated results by round (list of Team attributes)
+
+Get Teams in each Region
+~~~~~~~~~~~~~~~~~~~~~~~~
+
 Print out all the teams in each region. The `regions` attribute is
 a dictionary with the information of all the teams in each region.
 
@@ -83,20 +90,8 @@ a dictionary with the information of all the teams in each region.
                   ...]
     }
 
-
-Print out all the teams that are simulated to make it to each round.
-The first round is filled out by default. This is a list of `Team` objects
-that are simulated to make it to each round. Right now `round2` is an empty list
-because we have not simulated the bracket yet.
-
-.. code-block:: python
-    
-    >>> print(b19.round1)
-    [<1 Duke>, <2 Michigan St>, <3 LSU>, ... , <1 Gonzaga>, <2 Michigan>, <3 Texas Tech>, 
-     ... , <1 North Carolina>, <2 Kentucky>, <3 Houston>, ... , <1 Virginia>, <2 Tennessee>, <3 Purdue>]
-        
-    >>> print(b19.round2)
-    []
+Actual Results by Round
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The `result` attribute will return a dictionary (similar to `regions` above)
 but will be broken out by which teams actually made it to each round. You can 
@@ -113,7 +108,24 @@ use it to inspect the real tournament results.
     
     >>> print(b19.result.get('winner'))
     {'Team': 'Virginia', 'Seed': 1}    
+
+Simulation Results by Round
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Print out all the teams that are simulated to make it to each round.
+The first round is filled out by default. This is a list of `Team` objects
+that are simulated to make it to each round. Right now `round2` is an empty list
+because we have not simulated the bracket yet.
+
+.. code-block:: python
+    
+    >>> print(b19.round1)
+    [<1 Duke>, <2 Michigan St>, <3 LSU>, ... , <1 Gonzaga>, <2 Michigan>, <3 Texas Tech>, 
+     ... , <1 North Carolina>, <2 Kentucky>, <3 Houston>, ... , <1 Virginia>, <2 Tennessee>, <3 Purdue>]
         
+    >>> print(b19.round2)
+    []
+
 Creating a Simulator Algorithm
 -------------------------------
 A simulator needs to take in a Game and Return a Team
