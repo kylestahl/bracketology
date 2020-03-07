@@ -195,7 +195,8 @@ A simulator needs to take in a Game and Return a Team
   
 Output:
  
- Blue Mountain State Win Percentage:   %50.9  <br/>
+ Blue Mountain State Win Percentage:   %50.9
+ 
  School of Hard Knocks Win Percentage: %49.1
 
 
