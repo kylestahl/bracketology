@@ -160,7 +160,7 @@ A simulator needs to take in a Game and Return a Team
 
 .. code-block:: python
 
-    pick_a_random_team(game1)
+    >>> pick_a_random_team(game1)
     <2 School of Hard Knocks>
 
 
@@ -193,7 +193,8 @@ A simulator needs to take in a Game and Return a Team
     print(f"Blue Mountain State Win Percentage:   %{BMS_win_pct}")
     print(f"School of Hard Knocks Win Percentage: %{HardKnocks_win_pct}")
   
-
+Output:
+ 
  Blue Mountain State Win Percentage:   %50.9
  School of Hard Knocks Win Percentage: %49.1
 
