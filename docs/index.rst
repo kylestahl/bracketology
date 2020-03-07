@@ -111,11 +111,14 @@ Bracket Objects
 .. autoclass:: bracketology.Game
     :members:
 
-Simulators
-----------
-
 .. autoclass:: bracketology.Team
     :members:
-    
+
+Simulators
+----------
+   
 .. autoclass:: bracketology.simulators
+    :members:
+    
+.. autoclass:: bracketology.simulators.upset_prob
     :members:
