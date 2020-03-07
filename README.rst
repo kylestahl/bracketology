@@ -5,6 +5,8 @@ Welcome to Bracketology!
    :width: 100%
    :align: center
    :alt: Bracketology logo
+
+.. inclusion-marker-do-not-remove
    
 The goal of bracketology is to speed up the analysis of NCAA march madness data 
 and help develop algorithms for filling out brackets.  
