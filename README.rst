@@ -132,15 +132,70 @@ A simulator needs to take in a Game and Return a Team
 
 .. code-block:: python
 
+    # Create teams
     team1 = Team(name='Blue Mountain State',seed=1)
     team2 = Team(name='School of Hard Knocks',seed=2)
-    
-    game1 = Game(team1, team2, round=1)
+    ​
+    # Create a game between the teams
+    game1 = Game(team1, team2, round_number=1)
 
 .. code-block:: python
 
-    def pick_a_random_team(Game):
-        return Team
+    import random
+    def pick_a_random_team(the_game):
+        
+        # Extract Teams from Game
+        team1 = the_game.top_team
+        team2 = the_game.bottom_team
+    ​
+        # Randomly select a winner
+        if random.random() < 0.5:
+            winner = team1
+        else:
+            winner = team2
+           
+        # Return the lucky team
+        return winner
+​
+.. code-block:: python
+
+    >>> pick_a_random_team(game1)
+    <2 School of Hard Knocks>
+
+.. code-block:: python
+
+    # Initialize Simulation Parameters
+    BMS_wins = 0
+    HardKnocks_wins = 0
+    n_games = 1000
+    ​
+    # Loop through a bunch of games
+    for i in range(n_games):
+        
+        # Simulate the winner
+        winner = pick_a_random_team(game1)
+        
+        # Increment win totals
+        if winner.seed == 1:
+            BMS_wins += 1
+        elif winner.seed == 2:
+            HardKnocks_wins += 1
+        else:
+            raise Exception("We have a tie??")
+    ​
+    # Calculate total win percentage
+    BMS_win_pct = round(BMS_wins/n_games, 4) * 100
+    HardKnocks_win_pct = round(HardKnocks_wins/n_games, 4) * 100
+    ​
+    # Print out results
+    print(f"Blue Mountain State Win Percentage:   %{BMS_win_pct}")
+    print(f"School of Hard Knocks Win Percentage: %{HardKnocks_win_pct}")
+  
+.. code-block:: python  
+    
+    Blue Mountain State Win Percentage:   %50.9
+    School of Hard Knocks Win Percentage: %49.1
+
 
 Evaluting Simulator Results
 ---------------------------
