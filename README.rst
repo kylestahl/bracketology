@@ -191,10 +191,9 @@ A simulator needs to take in a Game and Return a Team
     print(f"Blue Mountain State Win Percentage:   %{BMS_win_pct}")
     print(f"School of Hard Knocks Win Percentage: %{HardKnocks_win_pct}")
   
-.. code-block:: python  
-    
-    Blue Mountain State Win Percentage:   %50.9
-    School of Hard Knocks Win Percentage: %49.1
+
+  Blue Mountain State Win Percentage:   %50.9
+  School of Hard Knocks Win Percentage: %49.1
 
 
 Evaluting Simulator Results
