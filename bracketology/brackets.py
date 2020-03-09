@@ -10,14 +10,22 @@ class Team():
     
     Attributes
     ----------
-    name : (str)
+    name : str
         Name of the school (or abbreviation)
-    seed : (int)
+    seed : int
         Seed of the team in the tournament (1-16)
     stats : (dict)
         A dictionary with other information about the team, like season stats
     """
     def __init__(self, name, seed):
+        """
+        Parameters
+        ----------
+        name : str
+            The name of the school for the team.
+        seed : int
+            The seed of the team in the bracket.
+        """
         if type(name) != str: raise TypeError("name needs to be of type str")
         if type(seed) != int: raise TypeError("seed needs to be of type int")
         self.name = name
@@ -32,14 +40,26 @@ class Game():
     
     Attributes
     ----------
-    top_team : (Team)
+    top_team : Team
         The "top team" in the game refers to bracket position, not seed
-    bottom_team : (Team)
+    bottom_team : Team
         The "bottom team" in the game refers to bracket position, not seed
-    round_number : (int)
+    round_number : int
         Which round of the tournament is it (1-6)
     """
     def __init__(self, top_team, bottom_team, round_number):
+        """
+        Parameters
+        ----------
+        top_team : Team
+            The top team of the game, not by seed but by position on the bracket.
+            Closest to the top left
+        bottom_team : Team
+            Team closest to the bottom right of the bracket
+        round_number : int
+            Round number, first round is 1, championship game is 6
+
+        """
         #if not isinstance(top_team, Team): raise TypeError("top_team must be Type Team")
         #if not isinstance(bottom_team, Team): raise TypeError("bottom_team must be Type Team")
         self.top_team = top_team
@@ -49,7 +69,30 @@ class Game():
         return f"<Round {self.round_number}: Top Team: {self.top_team} , Bottom Team: {self.bottom_team}>\n"
 
 class SubBracket16():
+    """
+    A region, or sub-bracket of 16 teams for a NCAA tournament
+    
+    Attributes
+    ----------
+    region : str
+        Name of the region for the bracket
+    team01, ..., team16 : Team
+        Each team in the subracket named for its seed
+    Game1, ..., Game15 : Game
+        The games that make up the bracket. Round 1 is 1-8, 
+        Round 2 is 9-12, Sweet 16 is 13 and 14, Final Four is 15
+    round1, ..., round6 : list
+        List of games in each round
+    winner : Team
+        The team from this region that is simulated to make the final four
+    """
     def __init__(self, region):
+        """
+        Parameters
+        ----------
+        region : str
+            Name of the region for this sub bracket.
+        """
         # Set region
         self.region = region
         self.round1 = [] # first round will have 16 teams
@@ -168,8 +211,27 @@ class SubBracket16():
 
 
 class FinalFour():
+    """
+    A bracket of four teams to simulate the final four of a NCAA tournamnet
+    
+    Attributes
+    ----------
+    Game1 : Game
+        Final four game for regions 1 and 3
+    Game2 : Game
+        Final four game for regions 2 and 4
+    Championship : Game
+        Final game of tournament to determine the simulated winner
+    winner : Team
+        The team from this region that is simulated to make the final four    
+    """
     def __init__(self, year):
-        
+        """
+        Parameters
+        ----------
+        year : int
+            Year of the NCAA tournament
+        """
         self.year = str(year)
         
         # Get bracket dict
@@ -216,7 +278,7 @@ class Bracket():
     
     Attributes
     ----------
-    year : (int)
+    year : int
         Calendar year of the tournament (1985-2019)
     result : (dict)
         The actual tournament results for that year
@@ -234,11 +296,11 @@ class Bracket():
         Final Four and Championship games
     round1, round2, ... , round6 : (list of Teams)
         Which teams are simulated to make it to each round
-    winner : (Team)
+    winner : Team
         Simulated tournament winner
-    n_games_correct (int)
+    n_games_correct int
         Number of games the simulation got correct
-    total_score (int)
+    total_score int
         Total points earned by the simulator function (32 points per round)
     """
     def __repr__(self): 
@@ -246,6 +308,12 @@ class Bracket():
         return f"{header}{self.Finals}{self.East}{self.West}{self.Midwest}{self.South}"
     
     def __init__(self, year):
+        """
+        Parameters
+        ----------
+        year : int
+            Year of the NCAA tournament
+        """
         valid_years = [y for y in range(1985, 2019+1)]
         if year not in valid_years:
             raise ValueError("Year must be between 1985 and 2019")
@@ -290,7 +358,15 @@ class Bracket():
         self.total_score = 0
         
     def run_first_round(self, sim_func):
-        
+        """
+        Simulate the first round of the tournament. Fills out the games 
+        and teams in the second round
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         if not self.round1: raise Exception("Need to initialize first round before running")
         
         # Run first round for all brackets
@@ -306,6 +382,15 @@ class Bracket():
             [team for game in self.South.round2 for team in [game.top_team, game.bottom_team]]
             
     def run_second_round(self, sim_func):
+        """
+        Simulate the second round of the tournament. Fills out the games 
+        and teams in the third round
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         # Verify first round has completed
         if not self.round2: raise Exception("Need to complete first round before second")
         
@@ -322,6 +407,15 @@ class Bracket():
             [team for game in self.South.round3 for team in [game.top_team, game.bottom_team]]
             
     def run_sweet_sixteen(self, sim_func):
+        """
+        Simulate the third round of the tournament. Fills out the games 
+        and teams in the fourth round
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         # Verify first round has completed
         if not self.round3: raise Exception("Need to complete second round before third")
         
@@ -338,6 +432,15 @@ class Bracket():
             [team for game in self.South.round4 for team in [game.top_team, game.bottom_team]]
         
     def run_elite_eight(self, sim_func):
+        """
+        Simulate the fourth round of the tournament. Fills out the games 
+        and teams in the fifth round
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         # Verify first round has completed
         if not self.round4: raise Exception("Need to complete second round before third")       
         
@@ -355,6 +458,15 @@ class Bracket():
         self.Finals.set_matches(dict(zip(region_names, self.round5)))
         
     def run_final_four(self, sim_func):
+        """
+        Simulate the fifth round of the tournament. Fills out the games 
+        and teams in the sixth round
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         # Verify Previoud round has completed
         if not self.round5: raise Exception("Need to complete third round before fourth")
         
@@ -363,6 +475,15 @@ class Bracket():
         self.round6 = [self.Finals.Championship.top_team, self.Finals.Championship.bottom_team]
         
     def run_championship(self, sim_func):
+        """
+        Simulate the sixth round of the tournament. 
+        Set the winner of entire tournament
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         if not self.round6: raise Exception("Need to complete fourth round before fifth")
         
         # Run Game
@@ -372,6 +493,15 @@ class Bracket():
         self.winner = self.Finals.winner
         
     def sim(self, sim_func):
+        """
+        Simulate the entire bracket with `sim_func`, 
+        from first round to deciding the winner
+
+        Parameters
+        ----------
+        sim_func : function
+            A function that take in `Game` and returns a `Team` of that Game
+        """
         self.run_first_round(sim_func)
         self.run_second_round(sim_func)
         self.run_sweet_sixteen(sim_func)
@@ -380,6 +510,21 @@ class Bracket():
         self.run_championship(sim_func)
 
     def score(self, sim_func=None, verbose=True):
+        """
+        Calculates the number of games correct from the simulation and 
+        that total score (32 points per round). Will run a new simulation
+        as well if passed `sim_func` argument. 
+
+        Parameters
+        ----------
+        sim_func : function, optional
+            A function that take in `Game` and returns a `Team` of that Game.
+            Can be null if the bracket has already been simulated
+        verbose : bool, optional
+            Whether or not to print the score. If False, will not print score,
+            only sets the `n_games_correct` and `total_score` parameters. 
+            The default is True.
+        """
         if sim_func is None:
             if self.winner is None:
                 raise Exception("Need to run simulation before scoring")

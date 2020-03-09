@@ -7,12 +7,12 @@ def upset_prob(p):
     
     Parameters
     ----------
-    p  :  (float)
+    p  :  float
         The probability of an upset
     
     Returns
     -------
-    scoring_func  :  (function)
+    scoring_func  :  function
         function to pick an upset of a Game with probability `p`
     """
     assert type(p) == float, "p must be a float"
