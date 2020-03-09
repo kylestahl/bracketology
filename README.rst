@@ -144,23 +144,23 @@ First we create some faux teams and games to test our simulator function on.
 Then we define the simulator function.
 
 .. code-block:: python
-
+    
     import random
     def pick_a_random_team(the_game):
         
         # Extract Teams from Game
         team1 = the_game.top_team
         team2 = the_game.bottom_team
-    ​
+    ​   
         # Randomly select a winner
         if random.random() < 0.5:
             winner = team1
         else:
             winner = team2
-           
+        
         # Return the lucky team
         return winner
-​
+    
 Test the function out on a game.
 
 .. code-block:: python
