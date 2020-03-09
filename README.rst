@@ -128,7 +128,9 @@ because we have not simulated the bracket yet.
 
 Creating a Simulator Algorithm
 -------------------------------
-A simulator needs to take in a Game and Return a Team
+A simulator function needs to take in a `Game` and Return a `Team`.
+
+First we create some faux teams and games to test our simulator function on.
 
 .. code-block:: python
 
@@ -138,6 +140,8 @@ A simulator needs to take in a Game and Return a Team
     ​
     # Create a game between the teams
     game1 = Game(team1, team2, round_number=1)
+
+Then we define the simulator function.
 
 .. code-block:: python
 
@@ -157,12 +161,14 @@ A simulator needs to take in a Game and Return a Team
         # Return the lucky team
         return winner
 ​
+Test the function out on a game.
 
 .. code-block:: python
 
     >>> pick_a_random_team(game1)
     <2 School of Hard Knocks>
 
+Let's run some simulations with our function!
 
 .. code-block:: python
 
@@ -194,10 +200,11 @@ A simulator needs to take in a Game and Return a Team
     print(f"School of Hard Knocks Win Percentage: %{HardKnocks_win_pct}")
   
 Output:
- 
- Blue Mountain State Win Percentage:   %50.9
- 
- School of Hard Knocks Win Percentage: %49.1
+
+.. code-block:: python 
+
+    Blue Mountain State Win Percentage:   %50.9
+    School of Hard Knocks Win Percentage: %49.1
 
 
 Evaluting Simulator Results
