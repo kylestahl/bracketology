@@ -210,16 +210,44 @@ Output:
 Evaluting Simulator Results
 ---------------------------
 
-Here we can evaluate two different simulators
+Let's evaluate our simulator function on some actual brackets.
 
 .. code-block:: python
     
-    # TBD
+    # Initialize simulation parameters
+    n_sims = 1000 # number of times to simulate through all years
+    total_sims = (n_sims * len(brackets))
+    scores = []
+    correct_games = []
+    
+    # Loop through a plethora of brackets
+    for i in range(n_sims):
+        for bracket in brackets:
+            
+            # Run the algorithm on the bracket
+            bracket.score(sim_func=pick_a_random_team, verbose=False)
+            
+            # Save the scoring results in a list
+            scores.append(bracket.total_score)
+            correct_games.append(bracket.n_games_correct)
+    
+    # Calculate the average across all simulations
+    avg_score = round(sum(scores) / total_sims)
+    avg_correct = round(sum(correct_games) / total_sims)
+    
+    # Print result
+    print(f"Average number total score {avg_score}/192")
+    print(f"Average number of games guessed correctly {avg_correct}/64")
+ 
+Output:
+
+.. code-block:: python
+
+    Average number total score 31/192
+    Average number of games guessed correctly 21/64
 
 
-
-
-
+Easy, right!
 
 
 
