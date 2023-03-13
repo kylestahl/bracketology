@@ -314,9 +314,9 @@ class Bracket():
         year : int
             Year of the NCAA tournament
         """
-        valid_years = [y for y in range(1985, 2019+1)]
-        if year not in valid_years:
-            raise ValueError("Year must be between 1985 and 2019")
+        valid_years = brackets_dict.keys()
+        if year not in brackets_dict.keys():
+            raise ValueError(f"Year must be between {min(valid_years)} and {max(valid_years)}")
         
         # Set year
         self.year = str(year)
