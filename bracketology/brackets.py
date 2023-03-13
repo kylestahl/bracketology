@@ -1,5 +1,7 @@
 import json
+from schema import Schema, And, Use, Optional, SchemaError
 from pkg_resources import resource_filename
+
 filepath = resource_filename('bracketology', 'data/brackets.json')
 with open(filepath, 'r') as f:
     brackets_dict = json.load(f)
@@ -314,9 +316,9 @@ class Bracket():
         year : int
             Year of the NCAA tournament
         """
-        valid_years = [y for y in range(1985, 2019+1)]
-        if year not in valid_years:
-            raise ValueError("Year must be between 1985 and 2019")
+        valid_years = brackets_dict.keys()
+        if year not in brackets_dict.keys():
+            raise ValueError(f"Year must be between {min(valid_years)} and {max(valid_years)}")
         
         # Set year
         self.year = str(year)
@@ -552,6 +554,50 @@ class Bracket():
             print(f"Total Score: {self.total_score}/192")
 
 
+def add_year(year: dict):
+    """
+    Adds year dict to brackets_dict after validating schema
+
+    Parameters
+    ----------
+    year : dictionary, schema validated as defined below
+    """
+    year_schema = Schema({
+        # Year
+        str : {
+            "Region": {
+                # East, West, Midwest, South
+                str: [{
+                    "Team": str,
+                    "Seed": int 
+                }]
+            },
+            Optional("Results"): {
+                # Rounds
+                str: [{
+                    "Team": str,
+                    "Seed": int
+                }]
+            },
+            Optional("Finals"): {
+                "game1": {
+                    # Regions: Midwest, South
+                    "team1": str,
+                    "team2": str
+                },
+                "game2": {
+                    # Regions: West, East
+                    "team1": str,
+                    "team2": str
+                }
+            }
+
+        }
+    })
+
+    year_schema.validate(year)
+
+    brackets_dict.update()
 
 
 
